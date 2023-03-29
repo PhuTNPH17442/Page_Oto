@@ -1,0 +1,28 @@
+{{!< login}}
+
+    <!DOCTYPE html>
+<html>
+<head>
+	<title>Đăng nhập</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+	<div class="login">
+		<h1>Đăng nhập</h1>
+		<form>
+			<label for="username">Tài khoản:</label>
+			<input type="text" id="username" name="username" required>
+			<label for="password">Mật khẩu:</label>
+			<input type="password" id="password" name="password" required>
+			<div class="checkbox">
+				<input type="checkbox" id="human" name="human" required>
+				<label for="human">Tôi không phải người máy</label>
+			</div>
+			<button type="submit">Đăng nhập</button>
+		</form>
+		<div class="google-login">
+			<button type="button"><img src="/image/google.png">Đăng nhập bằng Google</button>
+		</div>
+	</div>
+</body>
+</html>

@@ -24,4 +24,9 @@ const PORT = process.env.PORT||4000
 app.get('/',(req, res , next)=>{
   res.render('home')
 })
+app.get('/login',(req,res,next)=>{
+  res.render('login',{
+    layout: 'login'
+  })
+})
 app.listen(PORT,()=> console.log(`Sever running in `+PORT))

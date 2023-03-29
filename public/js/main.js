@@ -1,12 +1,25 @@
-$(document).ready(function(){
-    Navfunction()
-})
+const navToggle = document.querySelector(".nav__toggle");
+const navLinks = document.querySelector(".nav__links");
 
-const Navfunction = ()=>{
-    var x = document.getElementsByTagName("nav")[0];
-  if (x.className === "") {
-    x.className = "responsive";
-  } else {
-    x.className = "";
+navToggle.addEventListener("click", () => {
+  navToggle.classList.toggle("active");
+  navLinks.classList.toggle("active");
+});
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
   }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  slides[slideIndex-1].style.display = "block";  
+  setTimeout(showSlides, 10000); // Chuyển ảnh tiếp theo sau 5 giây
+}
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
 }

@@ -11,6 +11,27 @@ nav {
     background-color: white;
     overflow: hidden;
   }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  .nav__links {
+    display: flex;
+    list-style: none;
+  }
+  
+  .nav__links li {
+    margin: 0 10px;
+  }
+  
+  .nav__links a {
+    color: #000;
+    font-size: 1.2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
   
   nav a {
     float: left;
@@ -105,4 +126,221 @@ nav {
   .next {
     right: 10px;
   }
+  .header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+  }
   
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .nav__logo a {
+    color: #000;
+    font-size: 2rem;
+    text-decoration: none;
+  }
+  
+  .nav__links {
+    display: flex;
+    list-style: none;
+  }
+  
+  .nav__links li {
+    margin: 0 10px;
+  }
+  
+  .nav__links a {
+    color: #000;
+    font-size: 1.2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  
+  .nav__toggle {
+    display: none;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    .nav {
+      flex-direction: column;
+    }
+  
+    .nav__links {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+  
+    .nav__links li {
+      margin: 10px 0;
+    }
+  
+    .nav__toggle {
+      display: block;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+  
+    .nav__toggle span {
+      display: block;
+      width: 30px;
+      height: 5px;
+      background-color: #000;
+      margin: 5px 0;
+      transition: transform 0.3s ease-in-out;
+    }
+  
+    .nav__toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+  
+    .nav__toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+  
+    .nav__toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+  
+    .nav__links.active {
+      display: flex;
+    }
+  }
+  .slideshow-container {
+    max-width: 2000px;
+    position: relative;
+    margin-top: 100px;
+    /* margin: auto; */
+  }
+  
+  .mySlides {
+    width: 100%;
+    overflow: hidden;
+    display: none;
+  }
+  .mySlides .fade img{
+    width: 100%;    
+  }
+  
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+  
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  } 
+  /* CSS cho phần đăng nhập */
+.login {
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #f2f2f2;
+  }
+  
+  .login h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  }
+  
+  .login label {
+  display: block;
+  margin-bottom: 8px;
+  }
+  
+  .login input[type="text"],
+  .login input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  }
+  
+  .login .checkbox {
+  margin-bottom: 20px;
+  }
+  
+  .login .checkbox label {
+  display: inline;
+  font-weight: normal;
+  }
+  
+  .login button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  }
+  
+  .login button[type="submit"]:hover {
+  background-color: #45a049;
+  }
+  
+  /* CSS cho phần đăng nhập bằng Google */
+  .google-login {
+  text-align: center;
+  margin-top: 20px;
+  }
+  
+  .google-login button {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  }
+  
+  .google-login button img {
+  vertical-align: middle;
+  margin-right: 10px;
+  }
