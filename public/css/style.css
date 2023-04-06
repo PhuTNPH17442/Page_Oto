@@ -344,3 +344,102 @@ nav {
   vertical-align: middle;
   margin-right: 10px;
   }
+  
+  .card {
+    margin-top: 80px;
+    margin-left: 20px;
+    width: 473px;
+    height: 602px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 20px;
+  }
+  .card img{
+    margin: auto;
+    text-align: center;
+  }
+  .card-title {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .card-subtitle {
+    font-weight: bold;
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .card-text {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .card-link {
+    display: block;
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 10px;
+  }
+  form.addCar {
+    margin-top: 120px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .addCar > div:first-child {
+    flex: 0 0 auto;
+    margin-right: 10px;
+  }
+  
+  .addCar > div:last-child {
+    flex: 1 1 auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .addCar label {
+    flex: 0 0 100%;
+    margin-bottom: 5px;
+  }
+  
+  .addCar input[type="text"],
+  .addCar input[type="password"],
+  .addCar input[type="checkbox"],
+  .addCar button[type="submit"] {
+    flex: 0 0 50%;
+    padding: 10px;
+    margin-bottom: auto;
+    box-sizing: border-box;
+  }
+  input {
+    border-radius: 10px;
+  }
+  .addCar .add-button-container {
+    margin-left: px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;    
+  }
+  
+  .addCar button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .addCar button[type="submit"]:hover {
+    background-color: #3e8e41;
+    
+  }
+ 

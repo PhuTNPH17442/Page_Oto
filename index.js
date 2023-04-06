@@ -9,7 +9,7 @@ const AuthController = require('./routes/auth')
 const app = express()
 require('dotenv').config()
 mongoose.set('strictQuery', false);
-mongoose.connect('mongodb+srv://phu1203:12032001aA@cluster0.lig7t.mongodb.net/oto_page?retryWrites=true&w=majority')
+mongoose.connect(process.env.URI_MONGO)
 const db = mongoose.connection;
 db.on('error',(err)=>{
   console.log(err)
@@ -38,10 +38,20 @@ const PORT = process.env.PORT||4000
 app.get('/',(req, res , next)=>{
   res.render('home')
 })
+app.get('/cars',(req,res)=>{
+  res.render('cars')
+})
+app.get('/car',(req,res)=>{
+  res.render('car')
+})
 app.use('/',AuthController)
 app.get('/login',(req,res,next)=>{
   res.render('login',{
     layout: 'login'
   })
 })
+app.get('/addCar',(req,res)=>{
+  res.render('addCar')
+})
+
 app.listen(PORT,()=> console.log(`Sever running in `+PORT))

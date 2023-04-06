@@ -22,7 +22,7 @@ const register = async(req,res,next)=>{
         const userSaved = await user.save();
 
         // token 
-        const token = jwt.sign({userID : userSaved._id},"fakervap",{
+        const token = jwt.sign({userID : userSaved._id},process.env.JWT_SECRET,{
             expiresIn:'1h',
         })
 
@@ -55,15 +55,12 @@ const login = async(req,res,next)=>{
                   email: user.email,
                   userId: user._id,
                 },
-                "fakervap",
+                process.env.JWT_SECRET,
                 {
                   expiresIn: '1h',
                 }
               );
-              return res.status(200).json({
-                message: 'Authentication successful.',
-                token: token,
-              });
+              return res.redirect('/');
             }
             return res.status(401).json({
               message: 'Authentication failed. Wrong password.',
