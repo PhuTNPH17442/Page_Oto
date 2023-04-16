@@ -2,50 +2,70 @@
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <header class="header">
-    <nav class="nav">
-      <div class="nav__logo">
-        <a href="#">PGroup</a>
-      </div>
-      <ul class="nav__links">
-        <li><a href="#">Giới thiệu</a></li>
-        <li><a href="cars">Ô tô</a></li>
-        <li><a href="#">Xe máy điện</a></li>
-        {{#if token}}
-        <li class="dropdown" id="dropdown">
-          <select id="user-dropdown" onchange="handleDropdown()">
-          <option value="user">{{userData.name}}</option>
-          </select>
-          <ul id="dropdown-menu" class="dropdown-menu">
-            <li><a href="">Cài đặt tài khoản</a></li>
-            <li><a href="">Giỏ hàng của bạn</a></li>
-            <li><a href="">Đăng xuất</a></li>
-          </ul>
-          {{!-- <a href="#">
-            {{userData.name}}
-            <button type="button">Đăng xuất</button>
-          </a> --}}
-        
-        {{else}}
-        <li>
-          <button type="button">Đăng ký lái xe</button>
-        </li>
-        {{/if}}
-      </ul>
-      <div class="nav__toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-
-      </div>
-    </nav>
+    <header class="header">
+     <div class="container">
+        <div class="header-main">
+           <div class="logo">
+              <a href="#">STEEL Coffee</a>
+           </div>
+           <div class="open-nav-menu">
+              <span></span>
+           </div>
+           <div class="menu-overlay">
+           </div>
+           <!-- navigation menu start -->
+           <nav class="nav-menu">
+             <div class="close-nav-menu">
+                <img src="img/close.svg" alt="close">
+             </div>
+             <ul class="menu">
+                <li class="menu-item">
+                   <a href="/">Home</a>
+                </li>
+                <li class="menu-item">
+                   <a href="#">Flash Sale</a>
+                </li>
+                <li class="menu-item">
+                   <a href="#">Giới Thiệu</a>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                   <a  data-toggle="sub-menu">Sản Phẩm <i class="plus"></i></a>
+                   <ul class="sub-menu">
+                       <li class="menu-item"><a href="#">Bánh Ngọt</a></li>
+                       <li class="menu-item"><a href="/coffee">Coffee</a></li>
+                       <li class="menu-item"><a href="#">Trà Sữa</a></li>
+                       <li class="menu-item"><a href="#">Nước Ép</a></li>
+                   </ul>
+                </li>
+                {{#if token}}
+                <li class="menu-item menu-item-has-children">
+                   <a href="#" data-toggle="sub-menu">{{userData.name}}<i class="plus"></i></a>
+                   <ul class="sub-menu">
+                       <li class="menu-item"><a href="#">Giỏ Hàng</a></li>
+                       <li class="menu-item"><a href="#">Cài Đặt Tài Khoản</a></li>
+                       <li class="menu-item"><a id="logout-btn">Đăng Xuất</a></li>
+                   </ul>
+                </li>
+                {{else}}
+                <li class="menu-item">
+                   <a href="/register">Đăng ký thành viên</a>
+                </li>
+                <li class="menu-item">
+                   <a href="/login">Đăng nhập</a>
+                </li>
+                {{/if}}
+             </ul>
+           </nav>
+           <!-- navigation menu end -->
+        </div>
+     </div>
   </header>
-
-  <script src="index.js"></script>
+<section class="home-section">
+ </section>
+  <script src="js/index.js"></script>
 </body>
 
 </html>

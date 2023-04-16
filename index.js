@@ -6,6 +6,7 @@ const handlebar = require('express-handlebars')
 const methodOverride = require('method-override')
 const path = require('path')
 const AuthController = require('./routes/auth')
+const CoffeeController = require('./routes/coffee')
 const app = express()
 require('dotenv').config()
 mongoose.set('strictQuery', false);
@@ -45,6 +46,7 @@ app.get('/car',(req,res)=>{
   res.render('car')
 })
 app.use('/',AuthController)
+app.use('/coffee',CoffeeController)
 app.get('/register',(req,res)=>{
   res.render('register',{
     layout:'login'

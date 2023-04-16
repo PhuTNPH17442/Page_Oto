@@ -24,8 +24,8 @@ const register = async(req,res,next)=>{
         const token = jwt.sign({userID : userSaved._id},process.env.JWT_SECRET,{
             expiresIn:'1h',
         })
-
-        res.status(201).json({token})
+        const userData = {name: user.name}
+        res.status(200).render('home',{userData, token})
     } catch (error) {
         res.status(500).redirect('/')
     }
@@ -64,7 +64,25 @@ const login = async (req, res, next) => {
     res.status(500).json({ message: error });
   }
 };
+ const logout = async(req,res,next)=>{
+  const token = req.header('x-auth-token');
+  if (!token) {
+    return res.status(401).json({ msg: 'No token, authorization denied' });
+  }
 
+  try {
+    const jwtSecret = process.env.JWT_SECRET;
+    const decoded = jwt.verify(token, jwtSecret);
+
+    // Remove token from blacklist or database if necessary
+
+    // Respond with success message
+    res.json({ msg: 'User logged out successfully' });
+  } catch (err) {
+    // Respond with error message
+    res.status(500).json({ msg: 'Server error' });
+  }
+ }
 module.exports ={
-    register,login
+    register,login,logout
 }
