@@ -33,7 +33,7 @@ app.set('views',path.join(__dirname,'views'))
 //Connection MONGO
 
 
-const PORT = process.env.PORT||4000
+const PORT = process.env.PORT||4321
 
 app.get('/',(req, res , next)=>{
   res.render('home')
@@ -45,6 +45,11 @@ app.get('/car',(req,res)=>{
   res.render('car')
 })
 app.use('/',AuthController)
+app.get('/register',(req,res)=>{
+  res.render('register',{
+    layout:'login'
+  })
+})
 app.get('/login',(req,res,next)=>{
   res.render('login',{
     layout: 'login'

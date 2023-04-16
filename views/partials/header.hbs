@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <header class="header">
     <nav class="nav">
@@ -13,19 +15,37 @@
         <li><a href="#">Giới thiệu</a></li>
         <li><a href="cars">Ô tô</a></li>
         <li><a href="#">Xe máy điện</a></li>
-        <li><a href="#">Dịch vụ hậu mãi</a></li>
-        <li><a href="#">Tài khoản</a></li>
-        <button type="button">Đăng ký lái xe</button>
+        {{#if token}}
+        <li class="dropdown" id="dropdown">
+          <select id="user-dropdown" onchange="handleDropdown()">
+          <option value="user">{{userData.name}}</option>
+          </select>
+          <ul id="dropdown-menu" class="dropdown-menu">
+            <li><a href="">Cài đặt tài khoản</a></li>
+            <li><a href="">Giỏ hàng của bạn</a></li>
+            <li><a href="">Đăng xuất</a></li>
+          </ul>
+          {{!-- <a href="#">
+            {{userData.name}}
+            <button type="button">Đăng xuất</button>
+          </a> --}}
+        
+        {{else}}
+        <li>
+          <button type="button">Đăng ký lái xe</button>
+        </li>
+        {{/if}}
       </ul>
       <div class="nav__toggle">
         <span></span>
         <span></span>
         <span></span>
-          
+
       </div>
     </nav>
   </header>
-  
-<script src="index.js"></script>
+
+  <script src="index.js"></script>
 </body>
+
 </html>

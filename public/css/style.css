@@ -7,6 +7,7 @@
     font-family: 'Ubuntu', sans-serif;
 }
 
+
 nav {
     background-color: white;
     overflow: hidden;
@@ -24,6 +25,7 @@ nav {
   
   .nav__links li {
     margin: 0 10px;
+    position: relative;
   }
   
   .nav__links a {
@@ -32,7 +34,26 @@ nav {
     text-decoration: none;
     text-transform: uppercase;
   }
-  
+  .nav__links>li:hover .dropdown-menu{
+    visibility: visible;
+    top: 30px;
+  }
+  .dropdown-menu {
+    position: absolute;
+    width: 150px;
+    border: 1px solid;
+    padding: 10px 0 10px 20px;
+    visibility: hidden;
+    top: 50px;
+    transition: 0.03s;
+  }
+  .dropdown-menu ul{
+    padding-left: 20px;
+  }
+  .dropdown-menu li ul a{
+    font-weight: normal !important;
+    font-size: 12px !important;
+  }
   nav a {
     float: left;
     color: #333;
@@ -224,6 +245,19 @@ nav {
     margin-top: 100px;
     /* margin: auto; */
   }
+  .menu-item {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-menu {
+    display: none;
+  }
+  
+  .dropdown-menu.show {
+    display: block;
+  }
+  
   
   .mySlides {
     width: 100%;
@@ -311,6 +345,7 @@ nav {
   display: inline;
   font-weight: normal;
   }
+  
   
   .login button[type="submit"] {
   background-color: #4CAF50;
