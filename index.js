@@ -7,6 +7,7 @@ const methodOverride = require('method-override')
 const path = require('path')
 const AuthController = require('./routes/auth')
 const CoffeeController = require('./routes/coffee')
+const MilkController = require('./routes/milk')
 const app = express()
 require('dotenv').config()
 mongoose.set('strictQuery', false);
@@ -39,14 +40,13 @@ const PORT = process.env.PORT||4321
 app.get('/',(req, res , next)=>{
   res.render('home')
 })
-app.get('/cars',(req,res)=>{
-  res.render('cars')
-})
-app.get('/car',(req,res)=>{
-  res.render('car')
-})
+
+// router 
 app.use('/',AuthController)
 app.use('/coffee',CoffeeController)
+app.use('/milk',MilkController)
+
+
 app.get('/register',(req,res)=>{
   res.render('register',{
     layout:'login'

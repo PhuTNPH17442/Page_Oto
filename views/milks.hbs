@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-DjiA4oMk+8dPDfT+JyX9OcTTCv2Qs1TAk/SU6z++Z6arIv6zNRR7/vy1khN9XrVp" crossorigin="anonymous">
+
+</head>
+<body>
+  <div class="row">
+    {{#each dataCF }}
+    
+      <div class="card">
+  <img src="{{image}}" alt="Placeholder image" class="card-img">
+  <div class="card-body">
+    <h5 class="card-title">{{name}}</h5>
+    <p class="card-text">Giá :{{price}} Đồng</p>
+    <p class="card-text">Mô tả :{{description}}</p>
+    <a href="#" class="card-link">Thêm vào yêu thích <i style="margin-left: 5px;" class="fa fa-heart"></i></a>
+    <a href="#" class="card-link">Thêm vào giỏ hàng</a>
+  </div>
+</div>
+{{/each}}
+</div>
+</body>
+</html>

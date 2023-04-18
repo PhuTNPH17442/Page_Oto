@@ -4,7 +4,7 @@ const { response } = require('express')
 const index = async(req,res,next)=>{
     Coffee.find().then(response=>{
         const dataCF = response.map(response => response.toObject())
-        res.render('cars',{dataCF})
+        res.render('coffees',{dataCF})
     })
     .catch(error =>{
         res.json({
