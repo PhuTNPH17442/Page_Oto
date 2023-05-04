@@ -58,8 +58,8 @@ const login = async (req, res, next) => {
     });
 
     const userData = {name: user.name}
-    res.status(200).json(token)
-    // res.status(200).render('home',{userData, token})
+    // res.status(200).json(token)
+    res.status(200).render('home',{userData, token})
   } catch (error) {
     console.log(error)
     res.status(500).json({ message: error });
