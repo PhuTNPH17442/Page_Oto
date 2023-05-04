@@ -1,8 +1,12 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const milkSchema = new Schema({
+const productSchema = new Schema({
   name: {
+    type: String,
+    required: true,
+  },
+  brand: {
     type: String,
     required: true,
   },
@@ -20,5 +24,5 @@ const milkSchema = new Schema({
   },
 },{timestamps:true});
 
-const Milk = mongoose.model('Milk',milkSchema)
-module.exports = Milk
+const Product = mongoose.model('Product',productSchema)
+module.exports = Product

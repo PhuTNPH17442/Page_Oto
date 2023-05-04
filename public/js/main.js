@@ -1,4 +1,18 @@
+//chat 
+const chatIcon = document.querySelector('.chat-icon');
+const chatWidget = document.querySelector('.chat-widget');
+const chatCloseBtn = document.querySelector('.chat-close-btn');
+const chatSendBtn = document.querySelector('.chat-send-btn');
+const chatInput = document.querySelector('.chat-input');
+const chatMessageList = document.querySelector('.chat-message-list');
 
+chatIcon.addEventListener("click", () => {
+    chatWidget.style.display = "block";
+});
+
+chatCloseBtn.addEventListener("click", () => {
+    chatWidget.style.display = "none    ";
+})
 var slideIndex = 1;
 showSlides(slideIndex);
 
@@ -100,3 +114,4 @@ logoutBtn.addEventListener('click', async () => {
     console.error(error);
   }
 });
+

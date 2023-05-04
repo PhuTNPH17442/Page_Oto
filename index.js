@@ -4,10 +4,13 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const handlebar = require('express-handlebars')
 const methodOverride = require('method-override')
+const session = require('express-session')
+const passport = require('passport')
+const flash = require('connect-flash')
 const path = require('path')
 const AuthController = require('./routes/auth')
-const CoffeeController = require('./routes/coffee')
-const MilkController = require('./routes/milk')
+const CoffeeController = require('./routes/product')
+const CartControl = require('./routes/cart')
 const app = express()
 require('dotenv').config()
 mongoose.set('strictQuery', false);
@@ -27,6 +30,10 @@ app.use(express.urlencoded({
     extended: true
 }))
 app.use(methodOverride('_method'))
+app.use(session({secret:'mysecret',resave: false , saveUninitialized:false}))
+app.use(flash())
+app.use(passport.initialize())
+app.use(passport.session())
 app.engine('hbs',handlebar.engine({
     extname:'.hbs'
 }))
@@ -43,8 +50,8 @@ app.get('/',(req, res , next)=>{
 
 // router 
 app.use('/',AuthController)
-app.use('/coffee',CoffeeController)
-app.use('/milk',MilkController)
+app.use('/product',CoffeeController)
+app.use('/cart',CartControl)
 
 
 app.get('/register',(req,res)=>{
@@ -57,8 +64,4 @@ app.get('/login',(req,res,next)=>{
     layout: 'login'
   })
 })
-app.get('/addCar',(req,res)=>{
-  res.render('addCar')
-})
-
 app.listen(PORT,()=> console.log(`Sever running in `+PORT))
