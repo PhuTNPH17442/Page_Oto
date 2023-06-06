@@ -10,7 +10,15 @@
 	
 	<div class="login">
 		<h1>Đăng nhập</h1>
-		<form method="post" action="/login">
+		{{#if error}}
+			<div class="error-form">
+				<ul class="error-text">
+					<li>
+						{{error}}
+					</li></ul>
+			</div>
+			{{/if}}
+		<form id="loginForm" method="post" action="/login">
 			<label for="email">Tài khoản:</label>
 			<input type="text" id="email" name="email" required>
 			<label for="password">Mật khẩu:</label>
@@ -23,11 +31,40 @@
 				<a class="register" href="register">Bạn chưa có tài khoản</a>
 			</div>
 			<button type="submit">Đăng nhập</button>
+			
 		</form>
 		<div class="google-login">
 			<button type="button"><img src="/image/google.png">Đăng nhập bằng Google</button>
 		</div>
 	</div>
 	<div class="birds"></div>
+	{{!-- <script>
+		const loginForm = document.getElementById('loginForm')
+		loginForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Ngăn chặn việc gửi form đi
+
+    // Lấy giá trị từ các trường input
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const humanCheckbox = document.getElementById('human');
+
+    // Kiểm tra và xử lý logic validate
+    if (email.trim() === '') {
+      alert('Vui lòng nhập địa chỉ email');
+      return;
+    }
+
+    if (password.trim() === '') {
+      alert('Vui lòng nhập mật khẩu');
+      return;
+    }
+
+    if (!humanCheckbox.checked) {
+      alert('Vui lòng xác nhận rằng bạn không phải người máy');
+      return;
+    }
+    loginForm.submit();
+  });
+	</script> --}}
 </body>
 </html>

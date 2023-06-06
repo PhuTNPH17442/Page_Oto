@@ -615,7 +615,7 @@ a{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 10px;
+	/* padding: 5px; */
 	border-top: 1px solid #ccc;
   }
   
@@ -651,6 +651,23 @@ a{
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
+  }
+
+  .error-form{
+	background-color: #fdd9d7;
+	padding: 15px;
+  }
+  .error-form ul li {
+	padding: 0 0 4px 20px;
+	position: relative;
+  }
+  .error-form ul li::before{
+	content: "\2022";
+	font-size: 1.75rem;
+	position: absolute;
+	top: -7.5px;
+	left: 0;
+	color: #5a5a5b;
   }
   
   

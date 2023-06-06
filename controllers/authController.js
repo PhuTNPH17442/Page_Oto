@@ -5,7 +5,28 @@ const jwt = require('jsonwebtoken')
 const register = async(req,res,next)=>{
     try {
         const {name,email,password,phone,adress} = req.body
-
+        const emailRegex = /^[^\s@]+@gmail\.com$/;
+        const passRegex = /^[a-zA-Z ]*$/;
+        // const nameRegex =/^[a-zA-Z ]*$/;
+        const phoneRegex = /^\d{10}$/ ;
+        const errors = [];
+        if(!passRegex || password.length<8){
+          // return res.status(400).render('register',{error:'Password must be at least 8 characters',layout:'login'})
+          errors.push('Password must be at least 8 characters')
+        }
+        if(!emailRegex.test(email)){
+          // return res.status(400).render('register',{error:"Định dạng email không đúng",layout:'login'})
+          errors.push('Định dạng email không đúng')
+        }
+        // if(!nameRegex.test(name)){
+        //   errors.push('Tên không thể chứa ký tự đặc biệt ')
+        // }
+        if(phone.length<10||isNaN(phone)==true){
+          errors.push('Số điện thoại không đúng định dạng')
+        }
+        if(errors.length>0){
+          return res.status(400).render('register',{errors,layout:'login'})
+        }
         const userExists = await User.findOne({email,phone});
         if(userExists){
             return res.status(400).json({
@@ -38,18 +59,14 @@ const login = async (req, res, next) => {
     const user = await User.findOne({ email });
 
     if (!user) {
-      return res.status(401).json({
-        message: 'Invalid email or password'
-      });
+      return res.status(401).render('login',{error:'Tài khoản không tồn tại'})
     }
 
     // Compare password
     const isMatch = await bcrypt.compare(password, user.password);
 
     if (!isMatch) {
-      return res.status(401).json({
-        message: 'Invalid email or password'
-      });
+      return res.status(401).render('login',{error:"Sai mật khẩu",layout:'login'})
     }
 
     // Generate token

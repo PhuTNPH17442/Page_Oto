@@ -1,31 +1,41 @@
-{{!< login}}
+{{!< login}} <!DOCTYPE html>
+	<html>
 
-    <!DOCTYPE html>
-<html>
-<head>
-	<title>Đăng ký</title>
-	<link rel="stylesheet" type="text/css" href="/css/style.css">
-</head>
-<body>
-	<div class="login">
-		<h1>Đăng ký</h1>
-		<form method="post" action="/register">
-			<label for="email">Tài khoản:</label>
-			<input type="text" id="email" name="email" required>
-			<label for="password">Mật khẩu:</label>
-			<input type="password" id="password" name="password" required>
-            <label for="name">Họ và Tên:</label>
-			<input type="text" id="name" name="name" required>
-            <label for="adress">Địa chỉ:</label>
-			<input type="text" id="adress" name="adress" required>
-            <label for="phone">Phone:</label>
-			<input type="text" id="phone" name="phone" required>
-			<div class="checkbox">
-				<input type="checkbox" id="human" name="human" required>
-				<label for="human">Tôi không phải người máy</label>
+	<head>
+		<title>Đăng ký</title>
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
+	</head>
+
+	<body>
+		<div class="login">
+			<h1>Đăng ký</h1>
+			{{#if errors}}
+			<div class="error-form">
+				<ul class="error-text">
+					{{#each errors}}
+					<li>{{this}}</li>
+					{{/each}}
+				</ul>
 			</div>
-			<button type="submit">Đăng ký</button>
-		</form>
-	</div>
-</body>
-</html>
+			{{/if}}
+			<form method="post" action="/register">
+				<label for="email">Tài khoản:</label>
+				<input type="text" id="email" name="email" required>
+				<label for="password">Mật khẩu:</label>
+				<input type="password" id="password" name="password" required>
+				<label for="name">Họ và Tên:</label>
+				<input type="text" id="name" name="name" required>
+				<label for="adress">Địa chỉ:</label>
+				<input type="text" id="adress" name="adress" required>
+				<label for="phone">Phone:</label>
+				<input type="text" id="phone" name="phone" required>
+				<div class="checkbox">
+					<input type="checkbox" id="human" name="human" required>
+					<label for="human">Tôi không phải người máy</label>
+				</div>
+				<button type="submit">Đăng ký</button>
+			</form>
+		</div>
+	</body>
+
+	</html>

@@ -12,13 +12,26 @@
         <h4>Customer Support</h4>
         <button class="chat-close-btn">&times;</button>
       </div>
+      {{#if token}}
       <div class="chat-body">
+        
         <ul class="chat-message-list"></ul>
       </div>
       <div class="chat-footer">
         <input type="text" placeholder="Type your message..." class="chat-input">
         <button class="chat-send-btn">Send</button>
       </div>
+      {{else}}
+      
+        <div class="chat-body">
+        
+        <ul class="chat-message-list"></ul>
+      </div>
+        <div class="chat-footer">
+        <a href="/login">Vui lòng đăng nhập để đóng góp ý kiến</a>
+      </div>
+        
+        {{/if}}
     </div>
     <button class="chat-icon" ><i class="fas fa-comment"></i></button>
     {{!-- <script src="js/main.js"></script> --}}
